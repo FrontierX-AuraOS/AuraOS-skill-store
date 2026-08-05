@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+"""Generate (dry-run or write) registry.json from skills/."""
+import hashlib
+import json
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+try:
+    import yaml
+except ImportError:
+    print("❌ PyYAML not installed")
+    sys.exit(1)
+
+DRY_RUN = "--dry-run" in sys.argv
+BASE_URL = "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main"
+
+skills = []
+skills_dir = Path("skills")
+
+if skills_dir.is_dir():
+    for manifest_path in sorted(skills_dir.rglob("MANIFEST.yaml")):
+        try:
+            data = yaml.safe_load(manifest_path.read_text())
+        except yaml.YAMLError:
+            continue
+        if not isinstance(data, dict):
+            continue
+
+        skill_dir = manifest_path.parent
+        total_size = sum(
+            f.stat().st_size for f in skill_dir.rglob("*") if f.is_file()
+        )
+
+        skills.append({
+            "id": data["id"],
+            "name": data["name"],
+            "version": str(data["version"]),
+            "author": data["author"],
+            "description": data["description"],
+            "tags": data.get("tags") or [],
+            "downloadUrl": f"{BASE_URL}/skills/{data['id']}",
+            "iconUrl": f"{BASE_URL}/skills/{data['id']}/icon.png",
+            "installs": 0,
+            "tier": "reviewed",
+            "minAuraVersion": data.get("minAuraVersion", "0.1.0"),
+            "size": total_size,
+            "checksum": hashlib.sha256(
+                json.dumps(data, sort_keys=True).encode()
+            ).hexdigest(),
+        })
+
+registry = {
+    "version": 1,
+    "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+    "skills": skills,
+}
+
+if DRY_RUN:
+    print(json.dumps(registry, indent=2, ensure_ascii=False))
+    print(f"\n✅ Registry dry-run OK ({len(skills)} skills)")
+else:
+    Path("registry.json").write_text(
+        json.dumps(registry, indent=2, ensure_ascii=False) + "\n"
+    )
+    print(f"✅ registry.json written ({len(skills)} skills)")
