@@ -71,16 +71,16 @@ entry:
 
 ```markdown
 ---
-type: persona                           # "persona" | "skill"
 name: My Skill Display Name
-name_zh: 我的技能                        # Chinese display name
-description: Short one-line summary
-description_en: English summary
 title_zh: 中文标题
 title_en: English Title
-greeting: 你好！我能帮你做什么？           # First message when activated
-greeting_en: Hello! What can I help with?
 category: demo                          # one of: 人格情绪|桌游互动|安防监控|办公巡视|开发工具|demo|动作
+description: Short one-line summary
+description_en: English summary
+aliases: [my-skill, 我的技能]            # alternate names for voice activation
+is_persona: false                       # true = persona (人格), false = skill
+greeting: 你好！我能帮你做什么？
+greeting_en: Hello! What can I help with?
 ---
 
 中文系统提示词正文。

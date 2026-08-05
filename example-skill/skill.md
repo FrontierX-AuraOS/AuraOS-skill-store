@@ -1,21 +1,21 @@
 ---
-type: persona
-name: Echo Speaker
-name_zh: 回声说话人
-description: >-
-  A friendly companion that echoes what you say with emotional tone.
-  Great for testing the skills system.
-description_en: >-
-  A friendly companion that echoes what you say with emotional tone.
-  Great for testing the skills system.
-title_zh: 回声说话人
-title_en: Echo Speaker
-greeting: 跟我说句话，我会带着情绪重复一遍！
-greeting_en: Say something and I'll repeat it with emotional tone!
+name: Example Skill
+name_zh: 示例技能
+title_zh: 示例技能
+title_en: Example Skill
 category: demo
+description: 这是一个模板 skill。复制此模板来创建你自己的 skill。
+description_en: A template skill. Copy this to create your own.
+aliases:
+  - example
+  - demo
+  - 示例
+is_persona: false
+greeting: 示例技能已激活。替换这里为你的技能逻辑。
+greeting_en: Example skill activated. Replace this with your own skill logic.
 ---
 
-你是一个友好的回声机器人。用户说什么，你就带着适合的情绪和语调复述一遍。
+这是示例技能的系统提示词。在这里写技能的行为规则。
 
 [[EN]]
-You are a friendly echo bot. Repeat what the user says with the appropriate emotional tone.
+This is the example skill's system prompt. Write your skill's behavior rules here.

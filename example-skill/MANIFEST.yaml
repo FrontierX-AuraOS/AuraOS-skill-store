@@ -3,21 +3,9 @@ name: Example Skill
 version: 1.0.0
 author: Your Name
 description: >-
-  这是一个模板 skill。Copy this template to create your own skill.
+  Copy this template to create your own skill. 复制此模板来创建你自己的技能。
 license: MIT
-minAuraVersion: 0.1.2
 tags: [demo]
 
-permissions:
-  tools:
-    - say
-  network:
-    domains: []
-  filesystem:
-    scope: skill
-  maxRuntimeSec: 10
-
 entry:
-  type: python
-  main: main.py
-  function: run
+  type: markdown

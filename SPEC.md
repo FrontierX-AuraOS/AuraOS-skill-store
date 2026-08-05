@@ -110,9 +110,13 @@ Actual skill files are downloaded individually from `downloadUrl` when the user 
 
 ```markdown
 ---
-type: persona                    # persona | action
 name: Python Expert
+title_zh: Python 专家
+title_en: Python Expert
+category: 开发工具
 description: Helpful Python coding assistant
+description_en: Helpful Python coding assistant
+is_persona: false
 tools: [say, run_shell, read_file]
 ---
 
