@@ -1,0 +1,327 @@
+name: Skills CI
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+      - 'registry.json'
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  # ── Validate every MANIFEST.yaml ──────────────────────
+  validate-manifests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Validate all MANIFEST.yaml files
+        run: |
+          python3 << 'PYEOF'
+          import sys, yaml, json
+          from pathlib import Path
+
+          REQUIRED = ["id", "name", "version", "author", "description", "entry"]
+          VALID_TOOLS = {"say", "run_shell", "read_file", "write_file",
+                         "search_skills", "switch_skill", "activate_skill",
+                         "move", "capture_camera_image", "get_battery"}
+          VALID_TIERS = {"untrusted", "reviewed", "verified", "revoked"}
+
+          errors = []
+          for manifest_path in Path("skills").rglob("MANIFEST.yaml"):
+              skill_dir = manifest_path.parent
+              skill_id = skill_dir.name
+              try:
+                  data = yaml.safe_load(manifest_path.read_text())
+              except yaml.YAMLError as e:
+                  errors.append(f"{manifest_path}: invalid YAML — {e}")
+                  continue
+
+              # Required fields
+              for key in REQUIRED:
+                  if key not in data:
+                      errors.append(f"{manifest_path}: missing required field '{key}'")
+
+              # id must match folder name
+              if data.get("id") != skill_id:
+                  errors.append(f"{manifest_path}: id '{data.get('id')}' != folder '{skill_id}'")
+
+              # version must be semver
+              if data.get("version"):
+                  parts = str(data["version"]).split(".")
+                  if len(parts) != 3 or not all(p.isdigit() for p in parts):
+                      errors.append(f"{manifest_path}: version '{data['version']}' not semver")
+
+              # permissions (optional but must be valid if present)
+              perms = data.get("permissions", {})
+              if perms:
+                  tools = perms.get("tools", [])
+                  for t in tools:
+                      if t not in VALID_TOOLS:
+                          errors.append(f"{manifest_path}: unknown tool '{t}'")
+                  domains = perms.get("network", {}).get("domains", [])
+                  if not isinstance(domains, list):
+                      errors.append(f"{manifest_path}: permissions.network.domains must be a list")
+                  fs_scope = perms.get("filesystem", {}).get("scope", "skill")
+                  if fs_scope not in ("skill", "drive"):
+                      errors.append(f"{manifest_path}: invalid filesystem.scope '{fs_scope}'")
+
+              # entry must be valid
+              entry = data.get("entry", {})
+              if entry.get("type") not in ("python", "markdown", "both"):
+                  errors.append(f"{manifest_path}: entry.type must be python|markdown|both")
+              if entry.get("type") in ("python", "both"):
+                  main_file = entry.get("main", "main.py")
+                  if not (skill_dir / main_file).exists():
+                      errors.append(f"{manifest_path}: entry.main '{main_file}' not found")
+
+              # tags max 5
+              if len(data.get("tags", [])) > 5:
+                  errors.append(f"{manifest_path}: max 5 tags")
+
+          if errors:
+              print("MANIFEST VALIDATION FAILED:")
+              for e in errors:
+                  print(f"  ❌ {e}")
+              sys.exit(1)
+
+          print(f"✅ All MANIFEST.yaml files valid ({sum(1 for _ in Path('skills').rglob('MANIFEST.yaml'))} skills)")
+          PYEOF
+
+  # ── Security scan on .py files ───────────────────────
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Security scan
+        run: |
+          python3 << 'PYEOF'
+          import ast, sys
+          from pathlib import Path
+
+          # Patterns that MUST be declared in MANIFEST permissions
+          DANGEROUS_IMPORTS = {
+              "socket": "network",
+              "requests": "network",
+              "urllib.request": "network",
+              "http.client": "network",
+              "urllib3": "network",
+              "httpx": "network",
+              "aiohttp": "network",
+              "websocket": "network",
+              "subprocess": "process",
+              "os": "filesystem" if "system" not in str else "process",
+              "shutil": "filesystem",
+              "pickle": "deserialize",
+              "ctypes": "native",
+          }
+
+          findings = []
+          for py_file in Path("skills").rglob("*.py"):
+              if py_file.parent.name.startswith("."):
+                  continue
+              source = py_file.read_text()
+              try:
+                  tree = ast.parse(source)
+              except SyntaxError as e:
+                  findings.append(f"{py_file}: syntax error — {e}")
+                  continue
+
+              imports = set()
+              for node in ast.walk(tree):
+                  if isinstance(node, ast.Import):
+                      for alias in node.names:
+                          imports.add(alias.name.split(".")[0])
+                  elif isinstance(node, ast.ImportFrom):
+                      if node.module:
+                          imports.add(node.module.split(".")[0])
+
+              # Check each import against the dangerous list
+              for imp in imports:
+                  for pattern, category in DANGEROUS_IMPORTS.items():
+                      if imp == pattern.split(".")[0]:
+                          findings.append(
+                              f"{py_file}: imports '{imp}' → needs '{category}' "
+                              f"permission in MANIFEST.yaml"
+                          )
+
+              # Check for exec/eval
+              for node in ast.walk(tree):
+                  if isinstance(node, ast.Call):
+                      func = None
+                      if isinstance(node.func, ast.Name):
+                          func = node.func.id
+                      elif isinstance(node.func, ast.Attribute):
+                          func = node.func.attr
+                      if func in ("exec", "eval", "compile"):
+                          findings.append(
+                              f"{py_file}: uses '{func}' — MUST be flagged for human review"
+                          )
+
+          if findings:
+              print("SECURITY SCAN FOUND ISSUES:")
+              for f in findings:
+                  print(f"  ⚠️  {f}")
+              sys.exit(1)
+
+          print(f"✅ Security scan passed ({sum(1 for _ in Path('skills').rglob('*.py'))} files)")
+          PYEOF
+
+  # ── Registry dry-run (PR only) ───────────────────────
+  registry-check:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    needs: [validate-manifests]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate registry (dry-run)
+        run: |
+          python3 << 'PYEOF'
+          import yaml, json, hashlib
+          from pathlib import Path
+
+          skills = []
+          for manifest_path in sorted(Path("skills").rglob("MANIFEST.yaml")):
+              data = yaml.safe_load(manifest_path.read_text())
+              skill_dir = manifest_path.parent
+
+              total_size = sum(
+                  f.stat().st_size for f in skill_dir.rglob("*") if f.is_file()
+              )
+
+              skills.append({
+                  "id": data["id"],
+                  "name": data["name"],
+                  "version": str(data["version"]),
+                  "author": data["author"],
+                  "description": data["description"],
+                  "tags": data.get("tags", []),
+                  "downloadUrl": (
+                      "https://raw.githubusercontent.com"
+                      "/FrontierX-AuraOS/AuraOS-skill-store/main/"
+                      f"skills/{data['id']}"
+                  ),
+                  "iconUrl": (
+                      "https://raw.githubusercontent.com"
+                      "/FrontierX-AuraOS/AuraOS-skill-store/main/"
+                      f"skills/{data['id']}/icon.png"
+                  ),
+                  "installs": 0,  # Tracked by backend in future
+                  "tier": "reviewed",
+                  "minAuraVersion": data.get("minAuraVersion", "0.1.0"),
+                  "size": total_size,
+                  "checksum": f"sha256:{hashlib.sha256(str(skills).encode()).hexdigest()[:16]}",
+              })
+
+          registry = {
+              "version": 1,
+              "skills": skills,
+          }
+
+          # Pretty-print for verification
+          print(json.dumps(registry, indent=2, ensure_ascii=False))
+          print(f"\n✅ Registry dry-run OK ({len(skills)} skills)")
+          PYEOF
+
+  # ── Build & deploy registry on merge to main ──────────
+  build-registry:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: [validate-manifests, security-scan]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Generate registry.json
+        run: |
+          python3 << 'PYEOF'
+          import yaml, json, hashlib, time
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          skills = []
+          for manifest_path in sorted(Path("skills").rglob("MANIFEST.yaml")):
+              data = yaml.safe_load(manifest_path.read_text())
+              skill_dir = manifest_path.parent
+              total_size = sum(
+                  f.stat().st_size for f in skill_dir.rglob("*") if f.is_file()
+              )
+
+              skills.append({
+                  "id": data["id"],
+                  "name": data["name"],
+                  "version": str(data["version"]),
+                  "author": data["author"],
+                  "description": data["description"],
+                  "tags": data.get("tags", []),
+                  "downloadUrl": (
+                      "https://raw.githubusercontent.com"
+                      "/FrontierX-AuraOS/AuraOS-skill-store/main/"
+                      f"skills/{data['id']}"
+                  ),
+                  "iconUrl": (
+                      "https://raw.githubusercontent.com"
+                      "/FrontierX-AuraOS/AuraOS-skill-store/main/"
+                      f"skills/{data['id']}/icon.png"
+                  ),
+                  "installs": 0,
+                  "tier": "reviewed",
+                  "minAuraVersion": data.get("minAuraVersion", "0.1.0"),
+                  "size": total_size,
+                  "checksum": hashlib.sha256(
+                      json.dumps(data, sort_keys=True).encode()
+                  ).hexdigest(),
+              })
+
+          registry = {
+              "version": 1,
+              "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "skills": skills,
+          }
+
+          Path("registry.json").write_text(
+              json.dumps(registry, indent=2, ensure_ascii=False) + "\n"
+          )
+          print(f"✅ registry.json written ({len(skills)} skills)")
+          PYEOF
+
+      - name: Commit & push registry.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if ! git diff --quiet registry.json; then
+            git add registry.json
+            git commit -m "chore: update registry.json [skip ci]"
+            git push
+            echo "✅ registry.json pushed"
+          else
+            echo "No changes to registry.json"
+          fi
