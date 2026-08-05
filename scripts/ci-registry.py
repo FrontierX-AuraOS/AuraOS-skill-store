@@ -32,12 +32,34 @@ if skills_dir.is_dir():
             f.stat().st_size for f in skill_dir.rglob("*") if f.is_file()
         )
 
+        # Detect kind and titles from skill.md frontmatter
+        kind = "skill"
+        title_zh = data.get("name", "")
+        title_en = data.get("name", "")
+        skill_md = skill_dir / "skill.md"
+        if skill_md.exists():
+            try:
+                text = skill_md.read_text(encoding="utf-8")
+                import re as _re
+                m = _re.match(r"^---\n(.*?)\n---", text, _re.DOTALL)
+                if m:
+                    fm = yaml.safe_load(m.group(1)) or {}
+                    if fm.get("is_persona"):
+                        kind = "persona"
+                    title_zh = str(fm.get("title_zh") or data.get("name", ""))
+                    title_en = str(fm.get("title_en") or data.get("name", ""))
+            except Exception:
+                pass
+
         skills.append({
             "id": data["id"],
             "name": data["name"],
+            "title_zh": title_zh,
+            "title_en": title_en,
             "version": str(data["version"]),
             "author": data["author"],
             "description": data["description"],
+            "kind": kind,
             "tags": data.get("tags") or [],
             "downloadUrl": f"{BASE_URL}/skills/{data['id']}",
             "iconUrl": f"{BASE_URL}/skills/{data['id']}/icon.png",
