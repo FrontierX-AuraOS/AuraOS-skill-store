@@ -1,31 +1,37 @@
 {
   "version": 1,
-  "updated": "2026-08-05T10:03:54Z",
+  "updated": "2026-08-05T20:34:17Z",
   "skills": [
     {
       "id": "echo-repeat",
-      "name": "Echo Repeat",
+      "name": "Echo Speaker",
+      "title_zh": "回声说话人",
+      "title_en": "Echo Speaker",
       "version": "1.0.0",
       "author": "FrontierX",
-      "description": "重复用户说的话，带情绪语调。A simple demo skill that repeats what you say.",
+      "description": "重复用户说的话，带情绪语调。A friendly demo persona that echoes what you say.",
+      "kind": "persona",
       "tags": [
         "demo",
-        "utility"
+        "persona"
       ],
       "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/echo-repeat",
       "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/echo-repeat/icon.png",
       "installs": 0,
       "tier": "reviewed",
       "minAuraVersion": "0.1.2",
-      "size": 1822,
-      "checksum": "87b699239db5894c37da13f64547eeb5cc5e19be9ee21389e0b4931f3caa9fba"
+      "size": 1518,
+      "checksum": "882e4f1513c5d82fb1af3ca2ad37d7aca284b969f844e7dfed95fc92e14a661d"
     },
     {
       "id": "web_search_summarizer",
       "name": "web_search_summarizer",
+      "title_zh": "网页搜索总结",
+      "title_en": "Web Search Summarizer",
       "version": "1.0.0",
       "author": "Community",
       "description": "搜索网页并总结内容",
+      "kind": "skill",
       "tags": [
         "demo"
       ],
