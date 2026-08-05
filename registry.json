@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "updated": "2026-08-05T07:43:50Z",
+  "skills": [
+    {
+      "id": "echo-repeat",
+      "name": "Echo Repeat",
+      "version": "1.0.0",
+      "author": "FrontierX",
+      "description": "重复用户说的话，带情绪语调。A simple demo skill that repeats what you say.",
+      "tags": [
+        "demo",
+        "utility"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/echo-repeat",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/echo-repeat/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.2",
+      "size": 1834,
+      "checksum": "87b699239db5894c37da13f64547eeb5cc5e19be9ee21389e0b4931f3caa9fba"
+    }
+  ]
+}

@@ -1,12 +1,12 @@
-id: echo-repeat
-name: Echo Repeat
+id: example-skill
+name: Example Skill
 version: 1.0.0
-author: FrontierX
+author: Your Name
 description: >-
-  重复用户说的话，带情绪语调。A simple demo skill that repeats what you say.
+  这是一个模板 skill。Copy this template to create your own skill.
 license: MIT
 minAuraVersion: 0.1.2
-tags: [demo, utility]
+tags: [demo]
 
 permissions:
   tools:
