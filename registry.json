@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-05T09:00:11Z",
+  "updated": "2026-08-05T10:03:54Z",
   "skills": [
     {
       "id": "echo-repeat",
@@ -19,6 +19,23 @@
       "minAuraVersion": "0.1.2",
       "size": 1822,
       "checksum": "87b699239db5894c37da13f64547eeb5cc5e19be9ee21389e0b4931f3caa9fba"
+    },
+    {
+      "id": "web_search_summarizer",
+      "name": "web_search_summarizer",
+      "version": "1.0.0",
+      "author": "Community",
+      "description": "搜索网页并总结内容",
+      "tags": [
+        "demo"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/web_search_summarizer",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/web_search_summarizer/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.0",
+      "size": 9834,
+      "checksum": "36034d1cc3a1b48c76d053875dff3fcb9edc9f9d1381c6318569685d8d2ee366"
     }
   ]
 }
