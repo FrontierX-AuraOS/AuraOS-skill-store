@@ -1,0 +1,20 @@
+id: web_search_summarizer
+name: web_search_summarizer
+version: 1.0.0
+author: Community
+description: 搜索网页并总结内容
+license: MIT
+tags:
+- demo
+permissions:
+  tools:
+  - say
+  network:
+    domains: []
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 30
+entry:
+  type: python
+  main: web_search_summarizer.py
+  function: run
