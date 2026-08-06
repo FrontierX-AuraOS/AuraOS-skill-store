@@ -1,0 +1,21 @@
+id: photo_storyteller
+name: photo_storyteller
+version: 1.0.0
+author: aidenyan
+description: 拍一张照片，根据画面内容发挥想象力编一个生动有趣的中文故事，包含开头、困境和结局。
+license: MIT
+tags:
+- demo
+permissions:
+  tools:
+  - say
+  network:
+    domains: []
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 30
+entry:
+  type: python
+  main: photo_storyteller.py
+  function: run
+author_id: a4404a03156e48b6a81e0740a290e1b1
