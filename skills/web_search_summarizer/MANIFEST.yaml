@@ -1,7 +1,7 @@
 id: web_search_summarizer
 name: web_search_summarizer
 version: 1.0.0
-author: Community
+author: aidenyan
 description: 搜索网页并总结内容
 license: MIT
 tags:
@@ -18,3 +18,4 @@ entry:
   type: python
   main: web_search_summarizer.py
   function: run
+author_id: a4404a03156e48b6a81e0740a290e1b1
