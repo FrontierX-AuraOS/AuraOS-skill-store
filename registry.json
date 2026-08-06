@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-05T20:34:17Z",
+  "updated": "2026-08-06T01:42:42Z",
   "skills": [
     {
       "id": "echo-repeat",
@@ -29,7 +29,7 @@
       "title_zh": "网页搜索总结",
       "title_en": "Web Search Summarizer",
       "version": "1.0.0",
-      "author": "Community",
+      "author": "aidenyan",
       "description": "搜索网页并总结内容",
       "kind": "skill",
       "tags": [
@@ -40,8 +40,8 @@
       "installs": 0,
       "tier": "reviewed",
       "minAuraVersion": "0.1.0",
-      "size": 9834,
-      "checksum": "36034d1cc3a1b48c76d053875dff3fcb9edc9f9d1381c6318569685d8d2ee366"
+      "size": 9877,
+      "checksum": "09d20a4491996b7e54694e21adc4f6b7e8173ac3382ba102b1aace9809439cb5"
     }
   ]
 }
