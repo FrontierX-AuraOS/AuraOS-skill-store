@@ -32,10 +32,13 @@ if skills_dir.is_dir():
             f.stat().st_size for f in skill_dir.rglob("*") if f.is_file()
         )
 
-        # Detect kind and titles from skill.md frontmatter
+        # Detect kind, titles, descriptions from skill.md frontmatter
         kind = "skill"
         title_zh = data.get("name", "")
         title_en = data.get("name", "")
+        desc_zh = data.get("description", "")
+        desc_en = data.get("description", "")
+        author_id = data.get("author_id", "")
         skill_md = skill_dir / "skill.md"
         if skill_md.exists():
             try:
@@ -48,6 +51,8 @@ if skills_dir.is_dir():
                         kind = "persona"
                     title_zh = str(fm.get("title_zh") or data.get("name", ""))
                     title_en = str(fm.get("title_en") or data.get("name", ""))
+                    desc_zh = str(fm.get("description") or desc_zh)
+                    desc_en = str(fm.get("description_en") or desc_en)
             except Exception:
                 pass
 
@@ -56,9 +61,12 @@ if skills_dir.is_dir():
             "name": data["name"],
             "title_zh": title_zh,
             "title_en": title_en,
+            "description_zh": desc_zh,
+            "description_en": desc_en,
             "version": str(data["version"]),
             "author": data["author"],
-            "description": data["description"],
+            "author_id": author_id,
+            "description": desc_en,  # backward compat
             "kind": kind,
             "tags": data.get("tags") or [],
             "downloadUrl": f"{BASE_URL}/skills/{data['id']}",
