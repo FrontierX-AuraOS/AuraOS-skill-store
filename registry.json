@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-06T01:42:42Z",
+  "updated": "2026-08-06T03:15:17Z",
   "skills": [
     {
       "id": "echo-repeat",
@@ -22,6 +22,26 @@
       "minAuraVersion": "0.1.2",
       "size": 1518,
       "checksum": "882e4f1513c5d82fb1af3ca2ad37d7aca284b969f844e7dfed95fc92e14a661d"
+    },
+    {
+      "id": "photo_storyteller",
+      "name": "photo_storyteller",
+      "title_zh": "照片故事家",
+      "title_en": "Photo Storyteller",
+      "version": "1.0.0",
+      "author": "aidenyan",
+      "description": "拍一张照片，根据画面内容发挥想象力编一个生动有趣的中文故事，包含开头、困境和结局。",
+      "kind": "skill",
+      "tags": [
+        "demo"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/photo_storyteller",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/photo_storyteller/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.0",
+      "size": 10762,
+      "checksum": "3b04d211f183f6c1bd29c6c42004853f89c9904a2f54642d2234c6a009f34320"
     },
     {
       "id": "web_search_summarizer",
