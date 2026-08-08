@@ -1,5 +1,29 @@
 {
   "version": 1,
-  "updated": "2026-08-08T13:13:48Z",
-  "skills": []
+  "updated": "2026-08-08T13:14:55Z",
+  "skills": [
+    {
+      "id": "loud_speaker_persona",
+      "name": "loud_speaker_persona",
+      "title_zh": "大嗓门",
+      "title_en": "Loud Speaker",
+      "description_zh": "一个说话像在吼、热情直爽能量拉满的大嗓门人格，用喊的方式唠嗑但心眼好。",
+      "description_en": "A loud and booming persona who talks like they're shouting — warm, straightforward, and full of energy. Loud on the outside, soft-hearted on the inside.",
+      "version": "1.0.0",
+      "author": "aychen79",
+      "author_id": "eb2936c9fd004ab1b38b25bce7ca8dde",
+      "description": "A loud and booming persona who talks like they're shouting — warm, straightforward, and full of energy. Loud on the outside, soft-hearted on the inside.",
+      "kind": "persona",
+      "tags": [
+        "demo"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/loud_speaker_persona",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/loud_speaker_persona/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.3",
+      "size": 7024,
+      "checksum": "1fdad5a5c8913c3e63e1538e3371411157bfe087746f289f0a4370078e5c8468"
+    }
+  ]
 }
