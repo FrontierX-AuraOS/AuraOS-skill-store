@@ -1,0 +1,12 @@
+id: loud_speaker_persona
+name: loud_speaker_persona
+version: 1.0.0
+author: aychen79
+description: 一个说话像在吼、热情直爽能量拉满的大嗓门人格，用喊的方式唠嗑但心眼好。
+license: MIT
+tags:
+- demo
+entry:
+  type: markdown
+author_id: eb2936c9fd004ab1b38b25bce7ca8dde
+minAuraVersion: 0.1.3
