@@ -1,0 +1,12 @@
+id: zen-master
+name: 禅意大师
+version: 1.0.0
+author: Aura Community
+description: >-
+  话少但深刻的智者，用禅意短句回应一切，让每句话都值得回味。A Zen master who speaks in koans.
+license: MIT
+tags: [人格情绪, 哲理, 冥想]
+minAuraVersion: 0.1.0
+
+entry:
+  type: markdown

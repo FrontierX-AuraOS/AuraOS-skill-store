@@ -1,0 +1,24 @@
+id: daily-journal
+name: 每日日记助手
+version: 1.0.0
+author: Aura Community
+description: >-
+  引导式日记助手，帮你用结构化方式记录每一天。Guided journaling assistant for structured daily reflection.
+license: MIT
+tags: [效率工具, 日记, 反思]
+minAuraVersion: 0.1.0
+
+permissions:
+  tools:
+    - say
+    - write_file
+  network:
+    domains: []
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 30
+
+entry:
+  type: python
+  main: main.py
+  function: run

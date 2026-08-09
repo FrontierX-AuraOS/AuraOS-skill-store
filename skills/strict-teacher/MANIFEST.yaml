@@ -1,0 +1,12 @@
+id: strict-teacher
+name: 严厉老师
+version: 1.0.0
+author: Aura Community
+description: >-
+  说话不留情面的严厉老师人格，高标准严要求，因为知道你能做得更好。A strict, no-nonsense teacher persona.
+license: MIT
+tags: [人格情绪, 教育, 督促]
+minAuraVersion: 0.1.0
+
+entry:
+  type: markdown

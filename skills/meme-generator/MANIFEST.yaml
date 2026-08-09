@@ -1,0 +1,23 @@
+id: meme-generator
+name: 表情包生成器
+version: 1.0.0
+author: Aura Community
+description: >-
+  一句话生成表情包！输入文字描述，即刻出图。Meme generator — describe it and get your meme instantly.
+license: MIT
+tags: [创意娱乐, 图片生成, 表情包]
+minAuraVersion: 0.1.0
+
+permissions:
+  tools:
+    - say
+  network:
+    domains: []
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 30
+
+entry:
+  type: python
+  main: main.py
+  function: run

@@ -1,0 +1,25 @@
+id: code-reviewer
+name: 代码审查员
+version: 1.0.0
+author: Aura Community
+description: >-
+  专业代码审查，覆盖 bug、安全、性能、可读性。Bug/security/perf review for your code.
+license: MIT
+tags: [开发工具, 代码审查, 编程]
+minAuraVersion: 0.1.0
+
+permissions:
+  tools:
+    - say
+    - run_shell
+    - read_file
+  network:
+    domains: []
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 30
+
+entry:
+  type: python
+  main: main.py
+  function: run
