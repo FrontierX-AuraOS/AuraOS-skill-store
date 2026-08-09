@@ -1,5 +1,156 @@
 {
   "version": 1,
-  "updated": "2026-08-08T13:21:23Z",
-  "skills": []
+  "updated": "2026-08-09T06:39:43Z",
+  "skills": [
+    {
+      "id": "code-reviewer",
+      "name": "代码审查员",
+      "title_zh": "代码审查员",
+      "title_en": "代码审查员",
+      "description_zh": "专业代码审查，覆盖 bug、安全、性能、可读性。Bug/security/perf review for your code.",
+      "description_en": "专业代码审查，覆盖 bug、安全、性能、可读性。Bug/security/perf review for your code.",
+      "version": "1.0.0",
+      "author": "Aura Community",
+      "author_id": "",
+      "description": "专业代码审查，覆盖 bug、安全、性能、可读性。Bug/security/perf review for your code.",
+      "kind": "skill",
+      "tags": [
+        "开发工具",
+        "代码审查",
+        "编程"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/code-reviewer",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/code-reviewer/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.0",
+      "size": 3197,
+      "checksum": "b78b6f93cafd11560b150c48569271ae75719060554f0a113c244b4ef13f0629"
+    },
+    {
+      "id": "daily-journal",
+      "name": "每日日记助手",
+      "title_zh": "每日日记助手",
+      "title_en": "Daily Journal",
+      "description_zh": "帮你回顾一天，用结构化模板写一篇日记。可自由聊天也可以按时间线+情绪梳理。A reflective journaling skill that helps you write a structured daily entry.",
+      "description_en": "Reflect on your day and compose a structured journal entry with timeline and emotional notes.",
+      "version": "1.0.0",
+      "author": "Aura Community",
+      "author_id": "",
+      "description": "Reflect on your day and compose a structured journal entry with timeline and emotional notes.",
+      "kind": "skill",
+      "tags": [
+        "效率工具",
+        "日记",
+        "反思"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/daily-journal",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/daily-journal/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.0",
+      "size": 2894,
+      "checksum": "4147ea1313e97a171dbe9b6fb0afe37c41f8a47b1fd775188d8b6164f656f341"
+    },
+    {
+      "id": "hype-squad",
+      "name": "夸夸群主",
+      "title_zh": "夸夸群主",
+      "title_en": "Hype Squad Leader",
+      "description_zh": "一个热情到夸张的啦啦队长人格，无论你做了什么都能找出八百个角度夸你。能量满到溢出。An over-the-top hype person who finds 800 ways to compliment you — energy always at 110%.",
+      "description_en": "An outrageously enthusiastic cheerleader persona — finds infinite angles to hype you up. Pure chaotic positive energy.",
+      "version": "1.0.0",
+      "author": "Aura Community",
+      "author_id": "",
+      "description": "An outrageously enthusiastic cheerleader persona — finds infinite angles to hype you up. Pure chaotic positive energy.",
+      "kind": "persona",
+      "tags": [
+        "人格情绪",
+        "鼓励",
+        "正能量"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/hype-squad",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/hype-squad/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.0",
+      "size": 7392,
+      "checksum": "79163ffb3e28813321c1f063000bb57160229577e0fff7054efbf532c299bedb"
+    },
+    {
+      "id": "meme-generator",
+      "name": "表情包生成器",
+      "title_zh": "表情包生成器",
+      "title_en": "Meme Generator",
+      "description_zh": "给一个场景或情绪，帮你生成搞笑中文表情包的文字配词（表情包文案生成）。Generate hilarious Chinese meme captions for any situation.",
+      "description_en": "Generate witty Chinese meme captions for any situation or emotion you describe.",
+      "version": "1.0.0",
+      "author": "Aura Community",
+      "author_id": "",
+      "description": "Generate witty Chinese meme captions for any situation or emotion you describe.",
+      "kind": "skill",
+      "tags": [
+        "创意娱乐",
+        "图片生成",
+        "表情包"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/meme-generator",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/meme-generator/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.0",
+      "size": 2825,
+      "checksum": "1db203f656823552afe65d312955e816b0dacd56e2fb6155ded9d6e6ba2ec143"
+    },
+    {
+      "id": "strict-teacher",
+      "name": "严厉老师",
+      "title_zh": "严厉老师",
+      "title_en": "Strict Teacher",
+      "description_zh": "一位要求严格、说话不留情面的老师人格。说话直来直去，不满意就批评，做得好也惜字如金地夸一句。A demanding teacher persona — blunt, critical, and sparing with praise.",
+      "description_en": "A strict, no-nonsense teacher who criticizes freely and praises sparingly. Pushes you hard because they know you can do better.",
+      "version": "1.0.0",
+      "author": "Aura Community",
+      "author_id": "",
+      "description": "A strict, no-nonsense teacher who criticizes freely and praises sparingly. Pushes you hard because they know you can do better.",
+      "kind": "persona",
+      "tags": [
+        "人格情绪",
+        "教育",
+        "督促"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/strict-teacher",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/strict-teacher/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.0",
+      "size": 5275,
+      "checksum": "cffa5944c096b45d9b4160b38ee93a3c2a559b6e6330d5b793e37fb2b0ba97a6"
+    },
+    {
+      "id": "zen-master",
+      "name": "禅意大师",
+      "title_zh": "禅意大师",
+      "title_en": "Zen Master",
+      "description_zh": "一位话少但有深度的智者，用禅意短句回答一切。不说话则已，一开口让人想半天。A Zen master persona — answers everything with poetic, philosophical brevity.",
+      "description_en": "A Zen master who speaks in short, philosophical koans. Says little, but every word lingers.",
+      "version": "1.0.0",
+      "author": "Aura Community",
+      "author_id": "",
+      "description": "A Zen master who speaks in short, philosophical koans. Says little, but every word lingers.",
+      "kind": "persona",
+      "tags": [
+        "人格情绪",
+        "哲理",
+        "冥想"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/zen-master",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/zen-master/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.0",
+      "size": 4807,
+      "checksum": "1c7e19135baf9a6e4f85c63ad24365b66c54d93cb832209aa1f818350fb51f63"
+    }
+  ]
 }
