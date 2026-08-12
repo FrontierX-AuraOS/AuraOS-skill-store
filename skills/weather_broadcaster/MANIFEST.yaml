@@ -1,0 +1,22 @@
+id: weather_broadcaster
+name: weather_broadcaster
+version: 1.0.0
+author: FrontierX-Release
+description: 获取当前位置的实时天气（温度、天气状况、风力、湿度等），用自然口语化中文整理成播报稿并语音播报。
+license: MIT
+tags:
+- demo
+permissions:
+  tools:
+  - say
+  - read_file
+  network:
+    domains: []
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 30
+entry:
+  type: python
+  main: weather_broadcaster.py
+  function: run
+author_id: f942b4ae370241a9b79c046cfdd0eda0
