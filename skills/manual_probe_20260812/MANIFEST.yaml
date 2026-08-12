@@ -1,0 +1,21 @@
+id: manual_probe_20260812
+name: manual_probe_20260812
+version: 1.0.0
+author: '1765714869'
+description: 当用户说「手测技能」时，机器人回复「手测成功」。用于验证技能系统的加载与触发流程。
+license: MIT
+tags:
+- 开发工具
+permissions:
+  tools:
+  - say
+  network:
+    domains: []
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 30
+entry:
+  type: python
+  main: manual_probe_20260812.py
+  function: run
+author_id: ef4c93e76b3c43a0845e85c26e1c7b72
