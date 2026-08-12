@@ -1,0 +1,21 @@
+id: upload_probe_20260812
+name: upload_probe_20260812
+version: 1.0.0
+author: '1765714869'
+description: 测试上传链路的简单技能，输入"测试上传"即可验证链路是否畅通。
+license: MIT
+tags:
+- demo
+permissions:
+  tools:
+  - say
+  network:
+    domains: []
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 30
+entry:
+  type: python
+  main: upload_probe_20260812.py
+  function: run
+author_id: ef4c93e76b3c43a0845e85c26e1c7b72
