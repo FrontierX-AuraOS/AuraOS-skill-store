@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-09T06:40:53Z",
+  "updated": "2026-08-13T04:04:33Z",
   "skills": [
     {
       "id": "code-reviewer",
@@ -126,6 +126,29 @@
       "minAuraVersion": "0.1.0",
       "size": 5275,
       "checksum": "cffa5944c096b45d9b4160b38ee93a3c2a559b6e6330d5b793e37fb2b0ba97a6"
+    },
+    {
+      "id": "upload_probe_20260812",
+      "name": "upload_probe_20260812",
+      "title_zh": "上传探测",
+      "title_en": "Upload Probe",
+      "description_zh": "测试上传链路的简单技能，输入\"测试上传\"即可验证链路是否畅通。",
+      "description_en": "A simple skill to test the upload pipeline — say \"测试上传\" to verify the link.",
+      "version": "1.0.0",
+      "author": "1765714869",
+      "author_id": "ef4c93e76b3c43a0845e85c26e1c7b72",
+      "description": "A simple skill to test the upload pipeline — say \"测试上传\" to verify the link.",
+      "kind": "skill",
+      "tags": [
+        "demo"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/upload_probe_20260812",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/upload_probe_20260812/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.0",
+      "size": 3712,
+      "checksum": "fc06fa4d12c06ed5e691fbe048dd25d5d8f764bf240fcf286613abf470160424"
     },
     {
       "id": "zen-master",
