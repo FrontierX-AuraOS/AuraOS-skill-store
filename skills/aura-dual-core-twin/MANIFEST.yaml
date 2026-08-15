@@ -1,0 +1,25 @@
+id: aura-dual-core-twin
+name: AURA 方舟对决
+version: 0.1.1
+author: FrontierX AuraOS
+description: >-
+  安装并启动 AURA 方舟对决双人战术桌游，默认使用两台虚拟 AURA，无需真机或云端模型。
+license: Proprietary
+homepage: https://github.com/btls4258/aura-dual-core-twin
+tags: [桌游互动, 方舟对决, AURA, demo]
+minAuraVersion: 0.1.5
+
+permissions:
+  tools: []
+  network:
+    domains:
+      - github.com
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 900
+
+entry:
+  type: python
+  main: aura_dual_core_twin.py
+  function: run
+  files: [release.json]
