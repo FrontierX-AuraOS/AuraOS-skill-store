@@ -1,0 +1,21 @@
+id: photo_story_teller
+name: photo_story_teller
+version: 1.0.0
+author: 大佬
+description: 上传一张照片，识别你手里拿着的物品，并围绕它创作一个有开头、困境、高潮、结尾的原创故事。
+license: MIT
+tags:
+- demo
+permissions:
+  tools:
+  - say
+  network:
+    domains: []
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 30
+entry:
+  type: python
+  main: photo_story_teller.py
+  function: run
+author_id: a4404a03156e48b6a81e0740a290e1b1
