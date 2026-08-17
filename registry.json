@@ -1,7 +1,33 @@
 {
   "version": 1,
-  "updated": "2026-08-13T04:04:33Z",
+  "updated": "2026-08-17T02:02:28Z",
   "skills": [
+    {
+      "id": "aura-dual-core-twin",
+      "name": "AURA 方舟对决",
+      "title_zh": "AURA 方舟对决",
+      "title_en": "AURA Dual Core Twin",
+      "description_zh": "安装、启动、停止并检查 AURA 方舟对决双人战术桌游。",
+      "description_en": "Install, start, stop, and inspect the AURA Dual Core Twin tactical board game.",
+      "version": "0.1.1",
+      "author": "FrontierX AuraOS",
+      "author_id": "",
+      "description": "Install, start, stop, and inspect the AURA Dual Core Twin tactical board game.",
+      "kind": "skill",
+      "tags": [
+        "桌游互动",
+        "方舟对决",
+        "AURA",
+        "demo"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/aura-dual-core-twin",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/aura-dual-core-twin/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.5",
+      "size": 5540,
+      "checksum": "50445c5469fea1df8029bbc79a00c8f07bdf7fc869a94ebd12d4ea8458ac66af"
+    },
     {
       "id": "code-reviewer",
       "name": "代码审查员",
