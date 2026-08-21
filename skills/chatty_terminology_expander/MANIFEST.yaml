@@ -1,0 +1,22 @@
+id: chatty_terminology_expander
+name: chatty_terminology_expander
+version: 1.0.0
+author: 大佬
+description: 自动识别你话里的专业术语、缩写和概念，联网查解释后用絮叨可爱的语气掰开揉碎讲给你听
+license: MIT
+tags:
+- demo
+permissions:
+  tools:
+  - say
+  - read_file
+  network:
+    domains: []
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 30
+entry:
+  type: python
+  main: chatty_terminology_expander.py
+  function: run
+author_id: a4404a03156e48b6a81e0740a290e1b1
