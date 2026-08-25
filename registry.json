@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-25T07:14:55Z",
+  "updated": "2026-08-25T08:55:22Z",
   "skills": [
     {
       "id": "aura-dual-core-twin",
@@ -146,6 +146,35 @@
       "minAuraVersion": "0.1.0",
       "size": 2763,
       "checksum": "f7a7e50fbd2906a1c92fabbefdfc2474d56666dd03f74d7486a8c182a06d493d"
+    },
+    {
+      "id": "room_spin_scan",
+      "name": "room_spin_scan",
+      "title_zh": "原地扫屋",
+      "title_en": "Room Spin Scan",
+      "description_zh": "原地分段旋转，每转一小段就拍照，并用视觉解说周围环境（离散抓拍，中间会停）。",
+      "description_en": "Spin in place in short segments, capture a photo after each turn, and narrate what is around (discrete snapshots with brief pauses).",
+      "version": "1.0.0",
+      "author": "2564772558",
+      "author_id": "5caa13ef20014738be2775e3ff131582",
+      "description": "Spin in place in short segments, capture a photo after each turn, and narrate what is around (discrete snapshots with brief pauses).",
+      "kind": "skill",
+      "tags": [
+        "demo"
+      ],
+      "tags_zh": [
+        "demo"
+      ],
+      "tags_en": [
+        "demo"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/room_spin_scan",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/room_spin_scan/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.4",
+      "size": 2127,
+      "checksum": "14df819b856faa70c1358861c7abb72b5e3c01429119dde0122ae02f845fb100"
     },
     {
       "id": "strict-teacher",
