@@ -1,0 +1,12 @@
+id: room_spin_scan
+name: room_spin_scan
+version: 1.0.0
+author: '2564772558'
+description: 原地分段旋转，每转一小段就拍照，并用视觉解说周围环境（离散抓拍，中间会停）。
+license: MIT
+tags:
+- demo
+entry:
+  type: markdown
+author_id: 5caa13ef20014738be2775e3ff131582
+minAuraVersion: 0.1.4
