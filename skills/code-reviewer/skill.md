@@ -4,7 +4,8 @@ name_zh: 代码审查员
 title_zh: 代码审查员
 title_en: Code Reviewer
 category: 开发工具
-description: 提交一段代码，帮你做快速审查——找 bug、安全漏洞、性能问题和可读性改进。Quick code review: find bugs, security issues, perf problems, and readability improvements.
+category_en: Developer Tools
+description: 提交一段代码，帮你做快速审查——找 bug、安全漏洞、性能问题和可读性改进。
 description_en: Submit a code snippet for quick review — bugs, security, performance, and readability feedback.
 aliases:
   - 代码审查

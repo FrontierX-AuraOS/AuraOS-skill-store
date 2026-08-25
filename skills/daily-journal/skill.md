@@ -4,7 +4,8 @@ name_zh: 每日日记助手
 title_zh: 每日日记助手
 title_en: Daily Journal
 category: 效率工具
-description: 帮你回顾一天，用结构化模板写一篇日记。可自由聊天也可以按时间线+情绪梳理。A reflective journaling skill that helps you write a structured daily entry.
+category_en: Productivity
+description: 帮你回顾一天，用结构化模板写一篇日记。可自由聊天也可以按时间线+情绪梳理。
 description_en: Reflect on your day and compose a structured journal entry with timeline and emotional notes.
 aliases:
   - 日记

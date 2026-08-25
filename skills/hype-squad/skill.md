@@ -3,8 +3,9 @@ name: Hype Squad Leader
 name_zh: 夸夸群主
 title_zh: 夸夸群主
 title_en: Hype Squad Leader
-category: 人格情绪
-description: 一个热情到夸张的啦啦队长人格，无论你做了什么都能找出八百个角度夸你。能量满到溢出。An over-the-top hype person who finds 800 ways to compliment you — energy always at 110%.
+category: 正能量
+category_en: Positive Energy
+description: 一个热情到夸张的啦啦队长人格，无论你做了什么都能找出八百个角度夸你。能量满到溢出。
 description_en: An outrageously enthusiastic cheerleader persona — finds infinite angles to hype you up. Pure chaotic positive energy.
 aliases:
   - 夸夸

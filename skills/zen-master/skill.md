@@ -3,8 +3,9 @@ name: Zen Master
 name_zh: 禅意大师
 title_zh: 禅意大师
 title_en: Zen Master
-category: 人格情绪
-description: 一位话少但有深度的智者，用禅意短句回答一切。不说话则已，一开口让人想半天。A Zen master persona — answers everything with poetic, philosophical brevity.
+category: 正能量
+category_en: Positive Energy
+description: 一位话少但有深度的智者，用禅意短句回答一切。不说话则已，一开口让人想半天。
 description_en: A Zen master who speaks in short, philosophical koans. Says little, but every word lingers.
 aliases:
   - 禅

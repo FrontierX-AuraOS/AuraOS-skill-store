@@ -4,7 +4,8 @@ name_zh: 表情包生成器
 title_zh: 表情包生成器
 title_en: Meme Generator
 category: 创意娱乐
-description: 给一个场景或情绪，帮你生成搞笑中文表情包的文字配词（表情包文案生成）。Generate hilarious Chinese meme captions for any situation.
+category_en: Creative
+description: 给一个场景或情绪，帮你生成搞笑中文表情包的文字配词（表情包文案生成）。
 description_en: Generate witty Chinese meme captions for any situation or emotion you describe.
 aliases:
   - 表情包

@@ -2,7 +2,8 @@
 name: aura_dual_core_twin
 title_zh: AURA 方舟对决
 title_en: AURA Dual Core Twin
-category: 桌游互动
+category: 创意娱乐
+category_en: Creative
 description: 安装、启动、停止并检查 AURA 方舟对决双人战术桌游。
 description_en: Install, start, stop, and inspect the AURA Dual Core Twin tactical board game.
 aliases:

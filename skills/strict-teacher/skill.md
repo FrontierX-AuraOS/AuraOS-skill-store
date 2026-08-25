@@ -3,8 +3,9 @@ name: Strict Teacher
 name_zh: 严厉老师
 title_zh: 严厉老师
 title_en: Strict Teacher
-category: 人格情绪
-description: 一位要求严格、说话不留情面的老师人格。说话直来直去，不满意就批评，做得好也惜字如金地夸一句。A demanding teacher persona — blunt, critical, and sparing with praise.
+category: 效率工具
+category_en: Productivity
+description: 一位要求严格、说话不留情面的老师人格。说话直来直去，不满意就批评，做得好也惜字如金地夸一句。
 description_en: A strict, no-nonsense teacher who criticizes freely and praises sparingly. Pushes you hard because they know you can do better.
 aliases:
   - 老师

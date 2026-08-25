@@ -5,7 +5,7 @@ author: Aura Community
 description: >-
   引导式日记助手，帮你用结构化方式记录每一天。Guided journaling assistant for structured daily reflection.
 license: MIT
-tags: [效率工具, 日记, 反思]
+tags: [效率工具]
 minAuraVersion: 0.1.0
 
 permissions:
