@@ -2,6 +2,8 @@
 name: room_spin_scan
 title_zh: 原地扫屋
 title_en: Room Spin Scan
+category: 创意娱乐
+category_en: Creative
 description: 原地分段旋转，每转一小段就拍照，并用视觉解说周围环境（离散抓拍，中间会停）。
 description_en: Spin in place in short segments, capture a photo after each turn, and narrate what is around (discrete snapshots with brief pauses).
 aliases:

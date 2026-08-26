@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-25T08:55:22Z",
+  "updated": "2026-08-26T02:00:51Z",
   "skills": [
     {
       "id": "aura-dual-core-twin",
@@ -160,21 +160,21 @@
       "description": "Spin in place in short segments, capture a photo after each turn, and narrate what is around (discrete snapshots with brief pauses).",
       "kind": "skill",
       "tags": [
-        "demo"
+        "创意娱乐"
       ],
       "tags_zh": [
-        "demo"
+        "创意娱乐"
       ],
       "tags_en": [
-        "demo"
+        "Creative"
       ],
       "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/room_spin_scan",
       "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/room_spin_scan/icon.png",
       "installs": 0,
       "tier": "reviewed",
       "minAuraVersion": "0.1.4",
-      "size": 2127,
-      "checksum": "14df819b856faa70c1358861c7abb72b5e3c01429119dde0122ae02f845fb100"
+      "size": 2168,
+      "checksum": "a504ac64a6cc8cd1631d35dc77a7d51d1838fd274456e4884588d8052a8d1a09"
     },
     {
       "id": "strict-teacher",
