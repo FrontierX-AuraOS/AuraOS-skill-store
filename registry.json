@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-26T05:36:21Z",
+  "updated": "2026-08-26T10:27:10Z",
   "skills": [
     {
       "id": "aura-draw-and-guess",
@@ -59,6 +59,35 @@
       "minAuraVersion": "0.1.5",
       "size": 5536,
       "checksum": "1953c217cc8fdd82ba46987709781cb55ed829bd574e004fd3342c8252a3854d"
+    },
+    {
+      "id": "aura-text-adventure",
+      "name": "AURA 文字冒险",
+      "title_zh": "AURA 文字冒险",
+      "title_en": "AURA Text Adventure",
+      "description_zh": "与 AURA 结伴探索 5×5 固定地牢、获取普通长剑并完成确定性回合制战斗。",
+      "description_en": "Explore a fixed 5x5 dungeon with AURA, collect a longsword, and complete deterministic turn-based combat.",
+      "version": "0.1.0",
+      "author": "FrontierX AuraOS",
+      "author_id": "",
+      "description": "Explore a fixed 5x5 dungeon with AURA, collect a longsword, and complete deterministic turn-based combat.",
+      "kind": "skill",
+      "tags": [
+        "创意娱乐"
+      ],
+      "tags_zh": [
+        "创意娱乐"
+      ],
+      "tags_en": [
+        "Creative"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/aura-text-adventure",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/aura-text-adventure/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.5",
+      "size": 132534,
+      "checksum": "5582d943ef051db3d3418330ce9fc419035ae91ad0ee2920f52e6dbbfbb0873e"
     },
     {
       "id": "code-reviewer",
