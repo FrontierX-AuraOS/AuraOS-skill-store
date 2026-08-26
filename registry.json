@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-26T05:21:12Z",
+  "updated": "2026-08-26T05:36:21Z",
   "skills": [
     {
       "id": "aura-draw-and-guess",
@@ -204,6 +204,35 @@
       "minAuraVersion": "0.1.4",
       "size": 2168,
       "checksum": "a504ac64a6cc8cd1631d35dc77a7d51d1838fd274456e4884588d8052a8d1a09"
+    },
+    {
+      "id": "see_and_poem",
+      "name": "先拍眼前画面，抽取关键词写一首平水韵绝句并朗读",
+      "title_zh": "先拍眼前画面，抽取关键词写一首平水韵绝句并朗读",
+      "title_en": "see and poem",
+      "description_zh": "先拍眼前画面，抽取关键词写一首平水韵绝句并朗读",
+      "description_en": "Action skill see_and_poem",
+      "version": "1.0.0",
+      "author": "2564772558",
+      "author_id": "5caa13ef20014738be2775e3ff131582",
+      "description": "Action skill see_and_poem",
+      "kind": "skill",
+      "tags": [
+        "创意娱乐"
+      ],
+      "tags_zh": [
+        "创意娱乐"
+      ],
+      "tags_en": [
+        "Creative"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/see_and_poem",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/see_and_poem/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.0",
+      "size": 1054,
+      "checksum": "d4d984af2eb5a1c50d9b2dff05e1565f86a140b8592f9a51c427c37ddb3400bb"
     },
     {
       "id": "strict-teacher",
