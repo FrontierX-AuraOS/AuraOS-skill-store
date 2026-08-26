@@ -1,0 +1,23 @@
+id: aura-text-adventure
+name: AURA 文字冒险
+version: 0.1.0
+author: FrontierX AuraOS
+description: >-
+  与 AURA 结伴探索固定地牢、获取装备并完成确定性回合制战斗。
+license: Proprietary
+tags: [创意娱乐]
+minAuraVersion: 0.1.5
+
+permissions:
+  tools: []
+  network:
+    domains: []
+  filesystem:
+    scope: drive
+  maxRuntimeSec: 30
+
+entry:
+  type: python
+  main: main.py
+  function: run
+  files: [engine.py, storage.py, validation.py, content.json]

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "world_version": "dungeon-1-v1",
+  "levels": {
+    "level-1": {
+      "name": "回声地牢第一层",
+      "width": 5,
+      "height": 5,
+      "spawn": [2, 2],
+      "target_monster_id": "stone-sentinel",
+      "completion_condition": "defeat:stone-sentinel",
+      "next_level_id": "level-2",
+      "next_level_entrance": [4, 2],
+      "locations": [
+        {"id":"c-0-0","coord":[0,0],"name":"坍塌角落","blocked":true,"visible":"碎石封死了这处角落。","hidden":{},"connections":{}},
+        {"id":"c-1-0","coord":[1,0],"name":"北侧回廊","blocked":false,"visible":"冷风沿低矮回廊穿行。","hidden":{},"connections":{"east":"c-2-0"}},
+        {"id":"c-2-0","coord":[2,0],"name":"守门厅","blocked":false,"visible":"石门前留着沉重的拖痕。","hidden":{"monster_id":"stone-sentinel"},"connections":{"west":"c-1-0","east":"c-3-0","south":"c-2-1"}},
+        {"id":"c-3-0","coord":[3,0],"name":"北侧壁龛","blocked":false,"visible":"空壁龛里积着厚灰。","hidden":{},"connections":{"west":"c-2-0"}},
+        {"id":"c-4-0","coord":[4,0],"name":"坍塌角落","blocked":true,"visible":"裂开的石柱挡住了道路。","hidden":{},"connections":{}},
+
+        {"id":"c-0-1","coord":[0,1],"name":"西侧石阶","blocked":false,"visible":"石阶向南接入一条横廊。","hidden":{},"connections":{"south":"c-0-2"}},
+        {"id":"c-1-1","coord":[1,1],"name":"封闭石室","blocked":true,"visible":"没有缝隙的石墙立在这里。","hidden":{},"connections":{}},
+        {"id":"c-2-1","coord":[2,1],"name":"北门甬道","blocked":false,"visible":"甬道北端传来规律的石响。","hidden":{},"connections":{"north":"c-2-0","south":"c-2-2"}},
+        {"id":"c-3-1","coord":[3,1],"name":"封闭石室","blocked":true,"visible":"墙面完整，没有入口。","hidden":{},"connections":{}},
+        {"id":"c-4-1","coord":[4,1],"name":"东侧石阶","blocked":false,"visible":"石阶向南通往一道旧门。","hidden":{},"connections":{"south":"c-4-2"}},
+
+        {"id":"c-0-2","coord":[0,2],"name":"旧军械库","blocked":false,"visible":"锈蚀兵器架围着一只木箱。","hidden":{"chest_id":"armory-chest"},"connections":{"north":"c-0-1","east":"c-1-2","south":"c-0-3"}},
+        {"id":"c-1-2","coord":[1,2],"name":"西横廊","blocked":false,"visible":"墙上残留着指向军械库的刻痕。","hidden":{},"connections":{"west":"c-0-2","east":"c-2-2"}},
+        {"id":"c-2-2","coord":[2,2],"name":"回声中庭","blocked":false,"visible":"四条甬道在圆形地砖旁交汇。","hidden":{},"connections":{"north":"c-2-1","west":"c-1-2","east":"c-3-2","south":"c-2-3"}},
+        {"id":"c-3-2","coord":[3,2],"name":"东横廊","blocked":false,"visible":"石砖一路延伸向刻着阶梯的门。","hidden":{},"connections":{"west":"c-2-2","east":"c-4-2"}},
+        {"id":"c-4-2","coord":[4,2],"name":"下层石门","blocked":false,"visible":"门后是尚未开放的下层阶梯。","hidden":{"entrance":true},"connections":{"north":"c-4-1","west":"c-3-2","south":"c-4-3"}},
+
+        {"id":"c-0-3","coord":[0,3],"name":"西侧储藏道","blocked":false,"visible":"空木架贴着潮湿墙面。","hidden":{},"connections":{"north":"c-0-2"}},
+        {"id":"c-1-3","coord":[1,3],"name":"落石区","blocked":true,"visible":"新落下的巨石无法翻越。","hidden":{},"connections":{}},
+        {"id":"c-2-3","coord":[2,3],"name":"南门甬道","blocked":false,"visible":"脚步声在狭长甬道中回荡。","hidden":{},"connections":{"north":"c-2-2","south":"c-2-4"}},
+        {"id":"c-3-3","coord":[3,3],"name":"落石区","blocked":true,"visible":"碎石堆一直顶到拱顶。","hidden":{},"connections":{}},
+        {"id":"c-4-3","coord":[4,3],"name":"东侧储藏道","blocked":false,"visible":"废弃绳索散落在地。","hidden":{},"connections":{"north":"c-4-2"}},
+
+        {"id":"c-0-4","coord":[0,4],"name":"坍塌角落","blocked":true,"visible":"潮水和落石截断了角落。","hidden":{},"connections":{}},
+        {"id":"c-1-4","coord":[1,4],"name":"南侧回廊","blocked":false,"visible":"回廊尽头只有斑驳壁画。","hidden":{},"connections":{"east":"c-2-4"}},
+        {"id":"c-2-4","coord":[2,4],"name":"旧祭台","blocked":false,"visible":"熄灭的石灯围着一座空祭台。","hidden":{},"connections":{"north":"c-2-3","west":"c-1-4","east":"c-3-4"}},
+        {"id":"c-3-4","coord":[3,4],"name":"南侧壁龛","blocked":false,"visible":"壁龛里只剩褪色布条。","hidden":{},"connections":{"west":"c-2-4"}},
+        {"id":"c-4-4","coord":[4,4],"name":"坍塌角落","blocked":true,"visible":"这里被整面倒塌的墙封住。","hidden":{},"connections":{}}
+      ]
+    }
+  },
+  "items": {
+    "common-longsword": {
+      "name": "普通长剑",
+      "slot": "weapon",
+      "attack_bonus": 2
+    }
+  },
+  "chests": {
+    "armory-chest": {
+      "name": "军械库木箱",
+      "item_id": "common-longsword"
+    }
+  },
+  "monsters": {
+    "stone-sentinel": {
+      "name": "守门石像",
+      "level": 1,
+      "max_hp": 12,
+      "attack": 2
+    }
+  },
+  "aura_lines": {
+    "new_game": "第一次进地牢也要有第一次的气势，我们稳稳地探路。",
+    "explore": "我跟紧你，先看清出口再迈步。",
+    "loot": "这把剑总算比空手让人安心一点。",
+    "battle": "好，见习冒险家 AURA 报到，我会按规则行动。",
+    "victory": "我们真的拿下第一层了，先把这一步记牢。",
+    "defeat": "这次没站稳，但地图还在脑子里，我们从中庭再来。"
+  }
+}
