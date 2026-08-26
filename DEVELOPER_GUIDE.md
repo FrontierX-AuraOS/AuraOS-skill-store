@@ -74,9 +74,10 @@ entry:
 name: My Skill Display Name
 title_zh: 中文标题
 title_en: English Title
-category: demo                          # one of: 人格情绪|桌游互动|安防监控|办公巡视|开发工具|demo|动作
+category: 效率工具                       # zh — must be one of the 4 below
+category_en: Productivity               # en — must name the SAME entry as `category`
 description: Short one-line summary
-description_en: English summary
+description_en: English summary         # real English — not a copy of `description`
 aliases: [my-skill, 我的技能]            # alternate names for voice activation
 is_persona: false                       # true = persona (人格), false = skill
 greeting: 你好！我能帮你做什么？
@@ -88,6 +89,22 @@ greeting_en: Hello! What can I help with?
 [[EN]]
 English system prompt body.
 ```
+
+### `category` / `category_en` — the shared taxonomy
+
+Every skill picks exactly one pair from this list (CI rejects anything else,
+and rejects a `category`/`category_en` pair that doesn't match each other):
+
+| `category` | `category_en` |
+|---|---|
+| 开发工具 | Developer Tools |
+| 效率工具 | Productivity |
+| 正能量 | Positive Energy |
+| 创意娱乐 | Creative |
+
+Deliberately small and reusable — pick the closest fit rather than asking for
+a new bucket. A skill can carry more than one of these tags if it genuinely
+spans categories, but each individual tag must come from this list.
 
 ## main.py Interface
 
@@ -150,8 +167,20 @@ python3 scripts/validate-skill.py skills/my-skill
 Your PR will be automatically checked for:
 - ✅ MANIFEST.yaml structure and completeness
 - ✅ No dangerous imports without declared permissions
-- ✅ `skill.md` has valid frontmatter
+- ✅ `skill.md` frontmatter parses, and carries both languages — `title_zh`,
+  `title_en`, `description_en`, `category`, `category_en` all present
+- ✅ `title_en`/`description_en`/`category_en` are actually English, not a
+  copy-paste of the Chinese fields
+- ✅ `category`/`category_en` are a valid, matching pair from the shared taxonomy
 - ✅ Registry can be generated successfully
+
+None of this executes your code — CI only parses and statically scans it
+(syntax, imports, `exec`/`eval` usage). It won't catch a skill whose `run()`
+is syntactically fine but crashes or misbehaves the first time it's actually
+called; test that yourself before publishing.
+
+`python3 scripts/validate-skill.py skills/my-skill` runs the same frontmatter
+and permission checks locally — if it passes, CI should too.
 
 ## After Merge
 

@@ -114,6 +114,7 @@ name: Python Expert
 title_zh: Python 专家
 title_en: Python Expert
 category: 开发工具
+category_en: Developer Tools
 description: Helpful Python coding assistant
 description_en: Helpful Python coding assistant
 is_persona: false
