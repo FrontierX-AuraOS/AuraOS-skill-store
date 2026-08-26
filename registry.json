@@ -1,7 +1,36 @@
 {
   "version": 1,
-  "updated": "2026-08-26T02:00:51Z",
+  "updated": "2026-08-26T03:39:10Z",
   "skills": [
+    {
+      "id": "aura-draw-and-guess",
+      "name": "AURA 你画我猜",
+      "title_zh": "AURA 你画我猜",
+      "title_en": "AURA Draw & Guess",
+      "description_zh": "和 Agent 玩六回合你画我猜，双方各猜三次，支持逐笔作画、计分和硬件能力诚实降级。",
+      "description_en": "Play six rounds of draw-and-guess with three guesses per side, progressive drawing, scoring, and honest hardware fallbacks.",
+      "version": "0.1.0",
+      "author": "FrontierX AuraOS",
+      "author_id": "",
+      "description": "Play six rounds of draw-and-guess with three guesses per side, progressive drawing, scoring, and honest hardware fallbacks.",
+      "kind": "skill",
+      "tags": [
+        "创意娱乐"
+      ],
+      "tags_zh": [
+        "创意娱乐"
+      ],
+      "tags_en": [
+        "Creative"
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/aura-draw-and-guess",
+      "iconUrl": "https://raw.githubusercontent.com/FrontierX-AuraOS/AuraOS-skill-store/main/skills/aura-draw-and-guess/icon.png",
+      "installs": 0,
+      "tier": "reviewed",
+      "minAuraVersion": "0.1.5",
+      "size": 151546,
+      "checksum": "a756aa5424532791678cd04f03646fb691a1854164f4d16493ef42625f20961e"
+    },
     {
       "id": "aura-dual-core-twin",
       "name": "AURA 方舟对决",
