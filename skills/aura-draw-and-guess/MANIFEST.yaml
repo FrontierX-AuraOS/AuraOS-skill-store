@@ -1,0 +1,23 @@
+id: aura-draw-and-guess
+name: AURA 你画我猜
+version: 0.1.0
+author: FrontierX AuraOS
+description: >-
+  由用户控制 Agent 逐笔作画，支持网页轮流绘画、双方各猜三次和 AuraOS 模型能力诚实降级的六回合游戏。
+license: Proprietary
+tags: [创意娱乐]
+minAuraVersion: 0.1.5
+
+permissions:
+  tools: []
+  network:
+    domains: [127.0.0.1, localhost]
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 900
+
+entry:
+  type: python
+  main: aura_draw_and_guess.py
+  function: run
+  files: [game.html, game.css, game.js, runtime.json]

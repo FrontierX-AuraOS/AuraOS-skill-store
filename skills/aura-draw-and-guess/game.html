@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>AURA 你画我猜</title>
+    <link rel="stylesheet" href="/game.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-lockup">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <div>
+          <strong>AURA</strong>
+          <span>你画我猜</span>
+        </div>
+      </div>
+      <div class="round-track" aria-label="回合进度">
+        <span data-round-marker="1">01</span>
+        <i></i>
+        <span data-round-marker="2">02</span>
+        <i></i>
+        <span data-round-marker="3">03</span>
+        <i></i>
+        <span data-round-marker="4">04</span>
+        <i></i>
+        <span data-round-marker="5">05</span>
+        <i></i>
+        <span data-round-marker="6">06</span>
+      </div>
+      <div class="connection-state" id="connection-state"><i></i><span>正在检查</span></div>
+    </header>
+
+    <main>
+      <section class="start-view" id="start-view">
+        <div class="start-copy">
+          <p class="eyebrow">SIX ROUNDS / ONE CANVAS</p>
+          <h1>AURA 你画我猜</h1>
+          <p class="start-summary">你和 Agent 轮流作画，六回合各猜三次。</p>
+        </div>
+        <div class="mode-picker" role="radiogroup" aria-label="游戏模式">
+          <label class="mode-option active">
+            <input type="radio" name="mode" value="web_only" checked>
+            <span>
+              <strong>网页对局</strong>
+              <small>Agent 作画 · 你来猜</small>
+            </span>
+          </label>
+          <label class="mode-option">
+            <input type="radio" name="mode" value="web_duel">
+            <span>
+              <strong>网页轮流画</strong>
+              <small>双方轮流作画 · 每人各猜 3 次</small>
+            </span>
+          </label>
+          <label class="mode-option disabled" id="camera-mode-option">
+            <input type="radio" name="mode" value="robot_camera" disabled>
+            <span>
+              <strong>机器人对局</strong>
+              <small id="camera-mode-detail">正在检测摄像头与视觉能力</small>
+            </span>
+          </label>
+        </div>
+        <button class="primary-command" id="start-button" type="button">开始六回合</button>
+        <div class="capability-line" id="start-capabilities" aria-live="polite"></div>
+      </section>
+
+      <section class="game-view hidden" id="game-view">
+        <div class="game-status-band">
+          <div>
+            <span class="status-label">CURRENT ROUND</span>
+            <strong id="round-title">第 1 回合</strong>
+            <span id="role-copy">Agent 作画 · 你来猜</span>
+          </div>
+          <div class="phase-block">
+            <span class="phase-chip" id="phase-chip">准备中</span>
+            <strong id="countdown">02:00</strong>
+          </div>
+          <div class="scoreboard" aria-label="当前比分">
+            <div><span>YOU</span><strong id="user-score">0</strong></div>
+            <div class="score-divider">:</div>
+            <div><span>AGENT</span><strong id="agent-score">—</strong></div>
+          </div>
+        </div>
+
+        <div class="play-layout">
+          <section class="canvas-zone" aria-label="绘图区域">
+            <div class="canvas-toolbar">
+              <span id="stroke-progress">0 / 0 笔</span>
+              <div class="canvas-commands">
+                <button class="text-command hidden" id="clear-drawing-button" type="button">清空画布</button>
+                <button class="secondary-command hidden" id="continue-drawing-button" type="button">继续画一笔</button>
+                <span id="display-status">机器人屏幕待接入</span>
+              </div>
+            </div>
+            <div class="drawing-frame">
+              <svg id="drawing-canvas" viewBox="0 0 640 420" role="img" aria-label="Agent 正在逐步绘制的画面"></svg>
+              <div class="drawing-prompt hidden" id="drawing-prompt"></div>
+              <div class="physical-drawing hidden" id="physical-drawing">
+                <strong>轮到你画</strong>
+                <span>画好后让机器人摄像头拍摄</span>
+              </div>
+              <div class="answer-reveal hidden" id="answer-reveal"></div>
+            </div>
+            <div class="guess-history" id="guess-history" aria-live="polite"></div>
+          </section>
+
+          <aside class="dialogue-zone" aria-label="Agent 对话">
+            <div class="dialogue-heading">
+              <div>
+                <span class="agent-avatar" aria-hidden="true">A</span>
+                <div><strong>AURA</strong><small id="dialogue-mode">正在检测对话模型</small></div>
+              </div>
+              <span id="tts-state">文字模式</span>
+            </div>
+            <div class="dialogue-log" id="dialogue-log" aria-live="polite"></div>
+
+            <div class="interaction-panel" id="interaction-panel">
+              <form class="guess-form" id="guess-form">
+                <label for="guess-input">你的答案</label>
+                <div class="input-row">
+                  <input id="guess-input" name="guess" maxlength="120" autocomplete="off" placeholder="输入猜测…">
+                  <button type="submit">提交</button>
+                </div>
+                <div class="guess-actions">
+                  <button class="secondary-command hidden" id="voice-button" type="button">语音猜测</button>
+                  <button class="text-command" id="end-round-button" type="button">结束本回合</button>
+                </div>
+              </form>
+
+              <div class="camera-actions hidden" id="camera-actions">
+                <p id="camera-status-copy">画好后拍摄，Agent 将从受限候选中猜一次。</p>
+                <button class="primary-command compact" id="camera-guess-button" type="button">拍摄并让 Agent 猜</button>
+                <button class="text-command" id="camera-fallback-button" type="button">切换到网页猜词</button>
+              </div>
+
+              <div class="web-drawing-actions hidden" id="web-drawing-actions">
+                <p id="web-drawing-status">画好后将画面交给 AuraOS 视觉模型。</p>
+                <button class="primary-command compact" id="canvas-guess-button" type="button">交卷，让 Agent 猜</button>
+                <button class="text-command" id="visual-fallback-button" type="button">改为 Agent 作画，我来猜</button>
+              </div>
+
+              <button class="primary-command compact hidden" id="next-round-button" type="button">进入下一回合</button>
+            </div>
+          </aside>
+        </div>
+
+        <section class="summary-band hidden" id="summary-band" aria-live="polite">
+          <p class="eyebrow">GAME COMPLETE</p>
+          <h2 id="summary-title">六回合结束</h2>
+          <p id="summary-copy"></p>
+          <div class="round-recap" id="round-recap"></div>
+          <button class="primary-command compact" id="restart-button" type="button">再玩一局</button>
+        </section>
+
+        <footer class="capability-rail" id="capability-rail"></footer>
+      </section>
+    </main>
+
+    <div class="error-banner hidden" id="error-banner" role="alert"></div>
+    <script src="/game.js" defer></script>
+  </body>
+</html>

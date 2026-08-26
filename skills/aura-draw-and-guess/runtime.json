@@ -1,0 +1,7 @@
+{
+  "port": 3001,
+  "round_timeout_seconds": 120,
+  "reverse_rounds": [2, 4, 6],
+  "vision_image_passthrough_confirmed": true,
+  "vision_contract_note": "AuraOS pure GenerateCmd forwards original PNG/JPEG bytes to the configured vision VLM without tools, chat history, display, or TTS."
+}
