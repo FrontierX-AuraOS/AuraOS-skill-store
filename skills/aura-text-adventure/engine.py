@@ -1118,7 +1118,11 @@ class AdventureEngine:
     def _state_summary(self, state: dict[str, Any]) -> str:
         p, a = state["player_state"], state["aura_state"]
         location = self._location(state)["name"]
-        return f"位置={location}; 阶段={self._phase_label(state)}; 玩家={p['hp']}/{p['max_hp']} HP 攻击{p['total_attack']}; AURA={a['hp']}/{a['max_hp']} HP 攻击{a['total_attack']}"
+        summary = f"位置={location}; 阶段={self._phase_label(state)}; 玩家={p['hp']}/{p['max_hp']} HP 攻击{p['total_attack']}; AURA={a['hp']}/{a['max_hp']} HP 攻击{a['total_attack']}"
+        combat = state.get("combat_state")
+        if combat:
+            summary += f"; {combat['monster_name']}={combat['monster_hp']}/{combat['monster_max_hp']} HP"
+        return summary
 
 
 def format_event(event: dict[str, Any]) -> str:
@@ -1132,7 +1136,11 @@ def format_event(event: dict[str, Any]) -> str:
             f"{{\"type\":\"AURA_ACTION\",\"decision_token\":\"{event['decision_token']}\",\"action\":\"attack\",\"target\":\"{event['legal_targets'][0]}\"}}。"
         )
     if result == "TURN_RESOLVED":
-        return f"{event.get('narration', '')}\n{event.get('state_summary', '')}\n可选：{'、'.join(event.get('choices', [])[:5])}"
+        return (
+            f"{event.get('narration', '')}\n"
+            f"【权威游戏状态，回复不得改写数值】{event.get('state_summary', '')}\n"
+            f"可选：{'、'.join(event.get('choices', [])[:5])}"
+        )
     text = str(event.get("narration", ""))
     if event.get("result_label") not in {"自由交谈", "环境观察", "调查结果", "队伍状态", "怪物属性", "当前地图"}:
         text = f"{event.get('result_label', '')}：{text}"

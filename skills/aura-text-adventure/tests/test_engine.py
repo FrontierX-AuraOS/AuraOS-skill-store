@@ -260,6 +260,8 @@ class CombatTests(EngineCase):
         self.assertEqual(resolved["public_state"]["combat"]["monster_hp"], 4)
         self.assertEqual(resolved["public_state"]["player"]["hp"], 8)
         self.assertEqual(resolved["public_state"]["aura"]["hp"], 10)
+        self.assertIn("守门石像=4/12 HP", resolved["state_summary"])
+        self.assertIn("【权威游戏状态，回复不得改写数值】", format_event(resolved))
 
     def test_forged_action_does_not_settle_then_new_player_action_falls_back(self) -> None:
         self.move_to_combat()
@@ -273,6 +275,7 @@ class CombatTests(EngineCase):
         self.assertIn("兜底", fallback["narration"])
         self.assertIn("新的玩家行动未执行", fallback["narration"])
         self.assertEqual(fallback["public_state"]["combat"]["monster_hp"], 6)
+        self.assertIn("守门石像=6/12 HP", format_event(fallback))
         self.assertLessEqual(len(format_event(fallback)), 400)
 
     def test_pending_queries_and_conversation_do_not_advance_combat(self) -> None:

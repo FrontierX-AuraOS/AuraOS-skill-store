@@ -1,6 +1,6 @@
 id: aura-text-adventure
 name: AURA 文字冒险
-version: 0.1.0
+version: 0.1.1
 author: FrontierX AuraOS
 description: >-
   与 AURA 结伴探索固定地牢、获取装备并完成确定性回合制战斗。
