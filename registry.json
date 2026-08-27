@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-26T10:27:10Z",
+  "updated": "2026-08-27T14:04:10Z",
   "skills": [
     {
       "id": "aura-draw-and-guess",
@@ -67,7 +67,7 @@
       "title_en": "AURA Text Adventure",
       "description_zh": "与 AURA 结伴探索 5×5 固定地牢、获取普通长剑并完成确定性回合制战斗。",
       "description_en": "Explore a fixed 5x5 dungeon with AURA, collect a longsword, and complete deterministic turn-based combat.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": "FrontierX AuraOS",
       "author_id": "",
       "description": "Explore a fixed 5x5 dungeon with AURA, collect a longsword, and complete deterministic turn-based combat.",
@@ -86,8 +86,8 @@
       "installs": 0,
       "tier": "reviewed",
       "minAuraVersion": "0.1.5",
-      "size": 132534,
-      "checksum": "5582d943ef051db3d3418330ce9fc419035ae91ad0ee2920f52e6dbbfbb0873e"
+      "size": 133079,
+      "checksum": "f1934374f0687b77a4d0e6a6fd710672a863d76c5fa4f12db0435c6021dc88db"
     },
     {
       "id": "code-reviewer",
