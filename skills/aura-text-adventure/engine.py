@@ -863,7 +863,7 @@ class AdventureEngine:
     def _classify(self, command: str) -> str:
         if any(x in command for x in ("地图", "我在哪里", "周围有什么")):
             return "query_map"
-        if any(x in command for x in ("怪物属性", "敌人属性", "怪有多少血", "守门石像")):
+        if self._is_monster_query(command):
             return "query_monster"
         if any(x in command for x in ("使用道具", "使用物品", "喝药", "吃药")):
             return "use_item"
@@ -949,7 +949,11 @@ class AdventureEngine:
 
     @staticmethod
     def _is_monster_query(command: str) -> bool:
-        return "怪物" in command or "敌人" in command or "守门石像" in command
+        subjects = ("怪物", "敌人", "守门石像", "石像")
+        query_terms = ("属性", "状态", "血量", "多少血", "查看", "查询", "看看", "信息")
+        return any(subject in command for subject in subjects) and any(
+            term in command for term in query_terms
+        )
 
     @staticmethod
     def _is_map_query(command: str) -> bool:

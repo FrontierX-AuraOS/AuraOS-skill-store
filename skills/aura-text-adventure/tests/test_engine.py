@@ -250,6 +250,13 @@ class ParsingAndExplorationTests(EngineCase):
 
 
 class CombatTests(EngineCase):
+    def test_natural_attack_with_monster_name_is_not_misclassified_as_query(self) -> None:
+        self.move_to_combat()
+        decision = self.engine.handle("我用普通攻击砍守门石像", request_id="natural-attack")
+
+        self.assertEqual(decision["result"], "AURA_DECISION_REQUIRED")
+        self.assertEqual(decision["public_state"]["combat"]["monster_hp"], 9)
+
     def test_valid_two_step_round_and_fixed_order(self) -> None:
         self.move_to_combat(with_sword=True)
         decision = self.engine.handle("普通攻击", request_id="player-1")
