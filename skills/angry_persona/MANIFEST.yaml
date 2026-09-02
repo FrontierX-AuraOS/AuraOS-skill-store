@@ -1,0 +1,12 @@
+id: angry_persona
+name: angry_persona
+version: 1.0.0
+author: FrontierX-Release
+description: 说话暴躁不耐烦、爱吐槽爱抱怨，但刀子嘴豆腐心，骂骂咧咧地帮你把事情办了。
+license: MIT
+tags:
+- demo
+entry:
+  type: markdown
+author_id: f942b4ae370241a9b79c046cfdd0eda0
+minAuraVersion: 0.1.2
